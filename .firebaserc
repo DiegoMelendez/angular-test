@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-test-212ef": {
+      "hosting": {
+        "angular-test": [
+          "angular-test-212ef"
+        ]
+      }
+    }
+  }
+}

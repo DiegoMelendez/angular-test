@@ -1,0 +1,19 @@
+.navbar {
+    justify-content: space-between;
+}
+
+.navbar-buttons {
+    padding-right: 1rem;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.avatar:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
