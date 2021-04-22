@@ -11,9 +11,12 @@
               <p style="height: 20px; overflow: hidden;">
                   {{item.description}}
               </p>
+              <p style="color:lightgreen" *ngIf="item.available == true">Disponible</p>
+              <p style="color:lightcoral" *ngIf="item.available == false">No Disponible</p>
             </mat-card-content>
             <mat-card-actions>
               <button color="primary" routerLink="/cars/{{ item.id }}" mat-button>Ver</button>
+              <button (click)="handleRent(item.id)" [disabled]="!item.available" color="primary" mat-raised-button>Alquilar</button>
             </mat-card-actions>
           </mat-card>      
     </mat-grid-tile>

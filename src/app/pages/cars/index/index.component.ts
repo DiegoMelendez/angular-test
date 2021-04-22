@@ -1,5 +1,8 @@
 import { DatabaseService } from './../../../services/database.service';
 import { Component, OnInit } from '@angular/core';
+import { RentComponent } from './../../../components/rent/rent.component';
+import { MatDialog } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-index-car',
   templateUrl: './index.component.html',
@@ -10,6 +13,8 @@ export class IndexCarComponent implements OnInit {
 
   constructor(
     public db: DatabaseService,
+    public dialog: MatDialog,
+
   ) { }
 
   ngOnInit(): void {
@@ -23,11 +28,21 @@ export class IndexCarComponent implements OnInit {
           name: e.payload.doc.data().name,
           description: e.payload.doc.data().description,
           year: e.payload.doc.data().year,
+          available: e.payload.doc.data().available,
+          rented_by:e.payload.doc.data().rented_by,
           image_url: image,
           id: e.payload.doc.id
         }
       })
     })
+  }
+
+  handleRent(id) {
+    this.dialog.open(RentComponent, {
+      data: {
+        id: id
+      }
+    });
   }
 
 }

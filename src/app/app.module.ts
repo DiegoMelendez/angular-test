@@ -19,7 +19,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { CreateCarComponent } from './pages/cars/create/create.component';
 import { EditCarComponent } from './pages/cars/edit/edit.component';
-import { ViewCarComponent, DialogDelete } from './pages/cars/view/view.component';
+import { ViewCarComponent, DialogDelete, DialogDeliver } from './pages/cars/view/view.component';
 import { IndexCarComponent } from './pages/cars/index/index.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,6 +29,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
+import { RentComponent } from './components/rent/rent.component';
 
 const config = {
   apiKey: "AIzaSyBZ36M3FIBjxxCz-F8Lx9ArG0nOnDRbe8U",
@@ -49,7 +50,9 @@ const config = {
     EditCarComponent,
     ViewCarComponent,
     IndexCarComponent,
-    DialogDelete
+    DialogDelete,
+    RentComponent,
+    DialogDeliver
   ],
   imports: [
     BrowserModule,

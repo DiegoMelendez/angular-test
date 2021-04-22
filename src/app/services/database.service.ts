@@ -27,7 +27,9 @@ export class DatabaseService {
         image_url: url,
         created_by: user_id,
         rented_by: null,
-        rented_for: null,
+        rented_from: null,
+        rented_to: null,
+        available: true,
         created_at: Timestamp.fromDate(new Date())
       })
   }
@@ -54,6 +56,34 @@ export class DatabaseService {
 
   deleteCar(id) {
     return this.afs.collection('cars').doc(id).delete()
+  }
+
+  updateRentedCar(car_id, user_id, values) {
+    return this.afs.collection('cars').doc(car_id).update({
+      rented_by: user_id,
+      rented_from: values.from,
+      rented_to: values.to,
+      available: false,
+    })
+  }
+
+  createRent(car_id, user_id, values) {
+    return this.afs.collection('rents').add({
+      rented_by: user_id,
+      rented_from: values.from,
+      rented_to: values.to,
+      car_id: car_id,
+      created_at: Timestamp.fromDate(new Date())
+    })
+  }
+
+  deliverCar(car_id) {
+    return this.afs.collection('cars').doc(car_id).update({
+      rented_by: null,
+      rented_from: null,
+      rented_to: null,
+      available: true,
+    })
   }
 
 }

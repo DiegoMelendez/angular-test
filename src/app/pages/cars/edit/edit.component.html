@@ -4,7 +4,7 @@
 
     <h3>Cambia la imagen</h3>
     <input type="file" id="file" #userPhoto (change)="onFileSelected($event)" name="image" autocomplete="off" />
-    <img height="200px" src="{{fb2}}">
+    <img *ngIf="fb2 != ''" height="200px" src="{{fb2}}">
     <form *ngIf="carForm" class="car-form" [formGroup]="carForm">
         <mat-form-field class="car-form-input">
             <mat-label>Nombre</mat-label>
