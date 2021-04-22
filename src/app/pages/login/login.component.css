@@ -1,7 +1,5 @@
 .login-form {
     text-align: center;
     width: 400px;
-    margin: auto;
-    top: 50%;
-    transform: translateY(-50%);
+    margin: 20% auto;
 }

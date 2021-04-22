@@ -1,6 +1,14 @@
 .image-car {
     width: auto;
+    height: 150px;
+    position: absolute;
+}
+
+.image-container {
+    width: auto;
     margin: auto !important;
+    overflow: hidden;
+    position: relative;
     height: 115px;
     border-radius: 5px;
-}
+  }

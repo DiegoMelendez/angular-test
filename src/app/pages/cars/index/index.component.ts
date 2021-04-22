@@ -23,7 +23,8 @@ export class IndexCarComponent implements OnInit {
           name: e.payload.doc.data().name,
           description: e.payload.doc.data().description,
           year: e.payload.doc.data().year,
-          image_url: image
+          image_url: image,
+          id: e.payload.doc.id
         }
       })
     })

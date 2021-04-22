@@ -1,25 +1,26 @@
-<h1>Agrega un Vehiculo</h1>
+<mat-card style="width: -webkit-fill-available;">
+    <h1>Agrega un Vehiculo</h1>
 
     <h3>Sube una imagen</h3>
-    <input type="file" id="file" #userPhoto (change)="onFileSelected($event)" name="image"
-        autocomplete="off" />
+    <input type="file" id="file" #userPhoto (change)="onFileSelected($event)" name="image" autocomplete="off" />
 
-<form class="car-form" [formGroup]="carForm">
-    <mat-form-field class="car-form-input">
-        <mat-label>Nombre</mat-label>
-        <input matInput formControlName="name">
-    </mat-form-field>
-    <br />
-    <mat-form-field class="car-form-input">
-        <mat-label>Descripción</mat-label>
-        <textarea matInput formControlName="description"></textarea>
-    </mat-form-field>
-    <br />
-    <mat-form-field class="car-form-input">
-        <mat-label>Año</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="year">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <button (click)="handleSubmit()" mat-button color="primary">Guardar</button>
-</form>
+    <form class="car-form" [formGroup]="carForm">
+        <mat-form-field class="car-form-input">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <br />
+        <mat-form-field class="car-form-input">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="car-form-input">
+            <mat-label>Año</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="year">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <button [disabled]="blockButton" (click)="handleSubmit()" mat-raised-button color="primary">Guardar</button>
+    </form>
+</mat-card>

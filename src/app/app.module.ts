@@ -11,7 +11,6 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -19,8 +18,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { CreateCarComponent } from './pages/cars/create/create.component';
-import { EditComponent } from './pages/cars/edit/edit.component';
-import { ViewComponent } from './pages/cars/view/view.component';
+import { EditCarComponent } from './pages/cars/edit/edit.component';
+import { ViewCarComponent, DialogDelete } from './pages/cars/view/view.component';
 import { IndexCarComponent } from './pages/cars/index/index.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,6 +28,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
 
 const config = {
   apiKey: "AIzaSyBZ36M3FIBjxxCz-F8Lx9ArG0nOnDRbe8U",
@@ -43,13 +43,13 @@ const config = {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     LoginComponent,
     NavbarComponent,
     CreateCarComponent,
-    EditComponent,
-    ViewComponent,
+    EditCarComponent,
+    ViewCarComponent,
     IndexCarComponent,
+    DialogDelete
   ],
   imports: [
     BrowserModule,
@@ -71,6 +71,7 @@ const config = {
     HttpClientModule,
     AngularFireStorageModule,
     MatGridListModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

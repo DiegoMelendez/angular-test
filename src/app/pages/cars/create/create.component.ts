@@ -1,5 +1,5 @@
+import { AuthService } from './../../../services/auth.service';
 import { Router } from '@angular/router';
-import { ImageService } from './../../../services/image.service';
 import { DatabaseService } from './../../../services/database.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -14,20 +14,23 @@ import { map, finalize } from "rxjs/operators";
 })
 
 export class CreateCarComponent implements OnInit {
-  title = "Agrega un vehiculo"
   carForm: FormGroup;
   selectedFile: File = null;
   fb2 = "";
   downloadURL: Observable<string>;
+  blockButton;
 
   constructor(
     public fb: FormBuilder,
     public db: DatabaseService,
     private storage: AngularFireStorage,
-    private router: Router
+    private router: Router,
+    public auth: AuthService
   ) { }
 
   ngOnInit(): void {
+    this.blockButton = false;
+
     this.carForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
@@ -36,12 +39,16 @@ export class CreateCarComponent implements OnInit {
   }
 
   handleSubmit(): void {
-    this.db.createCar(this.carForm.value, this.fb2).then(() => {
-      this.router.navigate(['/cars'])
-    }
-    )
+    this.auth.user$.subscribe(resp => {
+      this.db.createCar(this.carForm.value, this.fb2, resp.uid).then(() => {
+        this.router.navigate(['/'])
+      }
+      )
+    })
   }
+
   onFileSelected(event) {
+    this.blockButton = true;
     var n = Date.now();
     const file = event.target.files[0];
     const filePath = `angular-test/${n}`;
@@ -55,6 +62,7 @@ export class CreateCarComponent implements OnInit {
           this.downloadURL.subscribe(url => {
             if (url) {
               this.fb2 = url;
+              this.blockButton = false;
             }
           });
         })

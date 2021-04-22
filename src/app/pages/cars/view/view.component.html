@@ -1,1 +1,19 @@
-<p>view works!</p>
+<mat-card style="width: -webkit-fill-available; height: 100%; display: flex"  *ngIf="auth.user$ | async as user">
+    <div style="float: left;">
+        <img class="image-car" mat-card-image src={{car.image_url}} alt="Photo of Car">
+
+    </div>
+    <div style="float: right;">
+        <h1>{{car.name}}</h1>
+        <p>
+            {{car.description}}
+        </p>
+        <mat-card-actions>
+            <button color="accent" mat-raised-button>Alquilar</button>
+            <button routerLink="/cars/{{id}}/edit" *ngIf="user.uid == car.created_by" color="primary" mat-button>Editar</button>
+            <button (click)="handleDelete()" *ngIf="user.uid == car.created_by" color="primary" mat-button>Eliminar</button>
+        </mat-card-actions>
+
+    </div>
+
+</mat-card>

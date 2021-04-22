@@ -9,7 +9,9 @@
     <div *ngIf="auth.user$ | async as user">
 
         <mat-toolbar color="primary" class="navbar">
-            <div>Rent-a-Car</div>
+            <button mat-button routerLink="/">
+                <div>Rent-a-Car</div>
+            </button>
             <div class="navbar-buttons">
                 <img mat-button [matMenuTriggerFor]="menu" alt="Avatar" class="avatar" [src]="user.photoURL">
                 <mat-menu #menu="matMenu">
