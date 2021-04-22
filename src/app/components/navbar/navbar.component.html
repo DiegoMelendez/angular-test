@@ -14,6 +14,7 @@
                 <img mat-button [matMenuTriggerFor]="menu" alt="Avatar" class="avatar" [src]="user.photoURL">
                 <mat-menu #menu="matMenu">
                     <button mat-menu-item>Perfil</button>
+                    <button mat-menu-item routerLink="/cars/create">Agregar auto</button>
                     <button mat-menu-item (click)="auth.signOut()">Cerrar Sesión</button>
                 </mat-menu>
             </div>

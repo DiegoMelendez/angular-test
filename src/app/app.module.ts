@@ -3,6 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import {
+  AngularFireStorageModule,
+  AngularFireStorageReference,
+  AngularFireUploadTask,
+} from "@angular/fire/storage";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,7 +17,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import { CreateCarComponent } from './pages/cars/create/create.component';
+import { EditComponent } from './pages/cars/edit/edit.component';
+import { ViewComponent } from './pages/cars/view/view.component';
+import { IndexCarComponent } from './pages/cars/index/index.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 const config = {
   apiKey: "AIzaSyBZ36M3FIBjxxCz-F8Lx9ArG0nOnDRbe8U",
@@ -30,6 +46,10 @@ const config = {
     HomeComponent,
     LoginComponent,
     NavbarComponent,
+    CreateCarComponent,
+    EditComponent,
+    ViewComponent,
+    IndexCarComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +61,16 @@ const config = {
     MatToolbarModule,
     MatMenuModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatNativeDateModule,
+    HttpClientModule,
+    AngularFireStorageModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

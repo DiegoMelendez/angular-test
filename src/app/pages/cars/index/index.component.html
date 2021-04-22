@@ -1,0 +1,18 @@
+<mat-grid-list cols="4" rowHeight="4:5">
+    <mat-grid-tile *ngFor="let item of cars">
+        <mat-card style="width: -webkit-fill-available;">
+            <img class="image-car" mat-card-image src={{item.image_url}} alt="Photo of Car">
+            <mat-card-header>
+              <mat-card-title>{{item.name}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                  {{item.description}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>Ver</button>
+            </mat-card-actions>
+          </mat-card>      
+    </mat-grid-tile>
+</mat-grid-list>
