@@ -10,7 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class IndexCarComponent implements OnInit {
   cars
-
+  carsUnavailable
   constructor(
     public db: DatabaseService,
     public dialog: MatDialog,
@@ -30,6 +30,26 @@ export class IndexCarComponent implements OnInit {
           year: e.payload.doc.data().year,
           available: e.payload.doc.data().available,
           rented_by:e.payload.doc.data().rented_by,
+          price: e.payload.doc.data().price,
+          image_url: image,
+          id: e.payload.doc.id
+        }
+      })
+    })
+
+    this.db.getCarsUnavailable().subscribe(resp => {
+      this.carsUnavailable = resp.map((e: any) => {
+        let image = e.payload.doc.data().image_url;
+        if (e.payload.doc.data().image_url == "") {
+          image = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Fno-image.jpg?alt=media&token=9a38bf3c-2078-4e36-a699-f0f0941a9a8c"
+        }
+        return {
+          name: e.payload.doc.data().name,
+          description: e.payload.doc.data().description,
+          year: e.payload.doc.data().year,
+          available: e.payload.doc.data().available,
+          rented_by:e.payload.doc.data().rented_by,
+          price: e.payload.doc.data().price,
           image_url: image,
           id: e.payload.doc.id
         }

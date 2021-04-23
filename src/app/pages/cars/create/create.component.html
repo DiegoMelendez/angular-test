@@ -16,6 +16,16 @@
         </mat-form-field>
         <br />
         <mat-form-field class="car-form-input">
+            <mat-label>Direcciónn</mat-label>
+            <textarea matInput formControlName="address"></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="car-form-input">
+            <mat-label>Precio de alquiler por día</mat-label>
+            <input matInput formControlName="price">
+        </mat-form-field>
+        <br />
+        <mat-form-field class="car-form-input">
             <mat-label>Año</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="year">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

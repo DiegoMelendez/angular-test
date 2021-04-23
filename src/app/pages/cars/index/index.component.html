@@ -1,3 +1,5 @@
+<h1>Vehiculos Disponibles</h1>
+
 <mat-grid-list cols="4" rowHeight="300px" gutterSize="10px">
     <mat-grid-tile *ngFor="let item of cars">
         <mat-card style="width: -webkit-fill-available;">
@@ -9,7 +11,33 @@
             </mat-card-header>
             <mat-card-content>
               <p style="height: 20px; overflow: hidden;">
-                  {{item.description}}
+                  {{item.price}}$ el dia
+              </p>
+              <p style="color:lightgreen" *ngIf="item.available == true">Disponible</p>
+              <p style="color:lightcoral" *ngIf="item.available == false">No Disponible</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button color="primary" routerLink="/cars/{{ item.id }}" mat-button>Ver</button>
+              <button (click)="handleRent(item.id, item.name)" [disabled]="!item.available" color="primary" mat-raised-button>Alquilar</button>
+            </mat-card-actions>
+          </mat-card>      
+    </mat-grid-tile>
+</mat-grid-list>
+
+<h1 style="margin-top:20px">Vehiculos Alquilados</h1>
+
+<mat-grid-list cols="4" rowHeight="300px" gutterSize="10px">
+    <mat-grid-tile *ngFor="let item of carsUnavailable">
+        <mat-card style="width: -webkit-fill-available;">
+            <diV class="image-container">
+                <img class="image-car" mat-card-image src={{item.image_url}} alt="Photo of Car">
+            </diV>
+            <mat-card-header style="padding-top: 10px;">
+              <mat-card-title>{{item.name}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p style="height: 20px; overflow: hidden;">
+                  {{item.price}}$ el dia
               </p>
               <p style="color:lightgreen" *ngIf="item.available == true">Disponible</p>
               <p style="color:lightcoral" *ngIf="item.available == false">No Disponible</p>

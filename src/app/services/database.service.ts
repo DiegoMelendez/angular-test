@@ -26,6 +26,8 @@ export class DatabaseService {
         year: data.year,
         image_url: url,
         created_by: user_id,
+        price: data.price,
+        address: data.address,
         rented_by: null,
         rented_from: null,
         rented_to: null,
@@ -43,11 +45,21 @@ export class DatabaseService {
         description: data.description,
         year: data.year,
         image_url: url,
+        price: data.price,
+        address: data.address,
       })
   }
 
+  getUser(id) {
+    return this.afs.collection('users').doc(id).get()
+  }
+
   getCars() {
-    return this.afs.collection('cars').snapshotChanges()
+    return this.afs.collection('cars', ref => ref.where('available', '==', true)).snapshotChanges()
+  }
+
+  getCarsUnavailable() {
+    return this.afs.collection('cars', ref => ref.where('available', '==', false)).snapshotChanges()
   }
 
   getRentedCars(id) {

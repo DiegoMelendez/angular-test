@@ -35,6 +35,8 @@ export class CreateCarComponent implements OnInit {
       name: ['', Validators.required],
       description: ['', Validators.required],
       year: [new Date, Validators.required],
+      price: ['', Validators.required],
+      address: ['', Validators.required],
     })
   }
 

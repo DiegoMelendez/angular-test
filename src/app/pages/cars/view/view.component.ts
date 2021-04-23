@@ -13,7 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class ViewCarComponent implements OnInit {
   car;
   id;
-
+  owner;
   constructor(
     public db: DatabaseService,
     private route: ActivatedRoute,
@@ -26,6 +26,9 @@ export class ViewCarComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this.db.getCar(this.id).subscribe(resp => {
       this.car = resp.data()
+      this.db.getUser(this.car.created_by).subscribe(resp => {
+        this.owner = resp.data();
+      })
       if (this.car.image_url == "") {
         this.car.image_url = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Fno-image.jpg?alt=media&token=9a38bf3c-2078-4e36-a699-f0f0941a9a8c"
       }

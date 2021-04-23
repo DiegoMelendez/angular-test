@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire';
@@ -27,21 +28,13 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RentComponent } from './components/rent/rent.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 
-const config = {
-  apiKey: "AIzaSyBZ36M3FIBjxxCz-F8Lx9ArG0nOnDRbe8U",
-  authDomain: "angular-test-212ef.firebaseapp.com",
-  projectId: "angular-test-212ef",
-  storageBucket: "angular-test-212ef.appspot.com",
-  messagingSenderId: "779743106121",
-  appId: "1:779743106121:web:230ba8ee3690ddcbff9b98",
-  measurementId: "G-9N4Z7V6KY5"
-}
+const config = environment.firebaseConf
 
 @NgModule({
   declarations: [

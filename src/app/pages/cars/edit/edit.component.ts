@@ -47,6 +47,8 @@ export class EditCarComponent implements OnInit {
         name: [car.name, Validators.required],
         description: [car.description, Validators.required],
         year: [car.year.toDate(), Validators.required],
+        price: [car.price, Validators.required],
+        address: [car.address, Validators.required],
       })
     })
   }

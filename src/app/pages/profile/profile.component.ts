@@ -41,6 +41,7 @@ export class ProfileComponent implements OnInit {
             year: e.payload.doc.data().year,
             available: e.payload.doc.data().available,
             rented_by: e.payload.doc.data().rented_by,
+            price: e.payload.doc.data().price,
             image_url: image,
             id: e.payload.doc.id
           }
@@ -60,6 +61,7 @@ export class ProfileComponent implements OnInit {
             year: e.payload.doc.data().year,
             available: e.payload.doc.data().available,
             rented_by: e.payload.doc.data().rented_by,
+            price: e.payload.doc.data().price,
             image_url: image,
             id: e.payload.doc.id
           }
