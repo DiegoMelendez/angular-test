@@ -1,6 +1,6 @@
 <h1>Vehiculos Disponibles</h1>
 
-<mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="300px" gutterSize="10px">
+<mat-grid-list [cols]="breakpoint"  rowHeight="300px" gutterSize="10px">
     <mat-grid-tile *ngFor="let item of cars">
         <mat-card style="width: -webkit-fill-available;">
             <diV class="image-container">
@@ -26,7 +26,7 @@
 
 <h1 style="margin-top:20px">Vehiculos Alquilados</h1>
 
-<mat-grid-list  [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="300px" gutterSize="10px">
+<mat-grid-list  [cols]="breakpoint"  rowHeight="300px" gutterSize="10px">
     <mat-grid-tile *ngFor="let item of carsUnavailable">
         <mat-card style="width: -webkit-fill-available;">
             <diV class="image-container">

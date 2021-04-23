@@ -12,7 +12,7 @@
             <h1>Vehiculos alquilados Actualmente</h1>
             <p *ngIf="cars == undefined">No hay Vehiculos</p>
 
-            <mat-grid-list *ngIf="cars" [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="300px"
+            <mat-grid-list *ngIf="cars" [cols]="breakpoint"  rowHeight="300px"
                 gutterSize="10px">
                 <mat-grid-tile *ngFor="let item of cars">
                     <mat-card style="width: -webkit-fill-available; background-color:   #dfb0b0;">
@@ -38,7 +38,7 @@
 
             <p *ngIf="myCars == undefined">No hay Vehiculos</p>
 
-            <mat-grid-list *ngIf="myCars" [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="300px"
+            <mat-grid-list *ngIf="myCars" [cols]="breakpoint"  rowHeight="300px"
                 gutterSize="10px">
                 <mat-grid-tile *ngFor="let item of myCars">
                     <mat-card style="width: -webkit-fill-available; background-color:   #dfb0b0;">
@@ -101,7 +101,7 @@
                 <h1>Vehiculos alquilados Actualmente</h1>
                 <p *ngIf="cars == undefined">No hay Vehiculos</p>
 
-                <mat-grid-list *ngIf="cars" [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="300px"
+                <mat-grid-list *ngIf="cars" [cols]="breakpoint"  rowHeight="300px"
                     gutterSize="10px">
                     <mat-grid-tile *ngFor="let item of cars">
                         <mat-card style="width: -webkit-fill-available; background-color:   #dfb0b0;">
@@ -127,7 +127,7 @@
 
                 <p *ngIf="myCars == undefined">No hay Vehiculos</p>
 
-                <mat-grid-list *ngIf="myCars" [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="300px"
+                <mat-grid-list *ngIf="myCars" [cols]="breakpoint"  rowHeight="300px"
                     gutterSize="10px">
                     <mat-grid-tile *ngFor="let item of myCars">
                         <mat-card style="width: -webkit-fill-available; background-color:   #dfb0b0;">
