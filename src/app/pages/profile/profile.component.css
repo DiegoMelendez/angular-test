@@ -6,3 +6,18 @@
 table {
     width: 100%;
   }
+
+  .image-car {
+    width: auto;
+    height: 150px;
+}
+
+.image-container {
+    text-align: center;
+    width: auto;
+    margin: auto !important;
+    overflow: hidden;
+    position: relative;
+    height: 115px;
+    border-radius: 5px;
+  }

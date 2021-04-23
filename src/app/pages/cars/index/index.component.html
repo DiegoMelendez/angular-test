@@ -1,6 +1,6 @@
 <h1>Vehiculos Disponibles</h1>
 
-<mat-grid-list cols="4" rowHeight="300px" gutterSize="10px">
+<mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="300px" gutterSize="10px">
     <mat-grid-tile *ngFor="let item of cars">
         <mat-card style="width: -webkit-fill-available;">
             <diV class="image-container">
@@ -16,7 +16,7 @@
               <p style="color:lightgreen" *ngIf="item.available == true">Disponible</p>
               <p style="color:lightcoral" *ngIf="item.available == false">No Disponible</p>
             </mat-card-content>
-            <mat-card-actions>
+            <mat-card-actions style="float: right;">
               <button color="primary" routerLink="/cars/{{ item.id }}" mat-button>Ver</button>
               <button (click)="handleRent(item.id, item.name)" [disabled]="!item.available" color="primary" mat-raised-button>Alquilar</button>
             </mat-card-actions>
@@ -26,7 +26,7 @@
 
 <h1 style="margin-top:20px">Vehiculos Alquilados</h1>
 
-<mat-grid-list cols="4" rowHeight="300px" gutterSize="10px">
+<mat-grid-list  [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="300px" gutterSize="10px">
     <mat-grid-tile *ngFor="let item of carsUnavailable">
         <mat-card style="width: -webkit-fill-available;">
             <diV class="image-container">
@@ -42,7 +42,7 @@
               <p style="color:lightgreen" *ngIf="item.available == true">Disponible</p>
               <p style="color:lightcoral" *ngIf="item.available == false">No Disponible</p>
             </mat-card-content>
-            <mat-card-actions>
+            <mat-card-actions style="float: right;">
               <button color="primary" routerLink="/cars/{{ item.id }}" mat-button>Ver</button>
               <button (click)="handleRent(item.id, item.name)" [disabled]="!item.available" color="primary" mat-raised-button>Alquilar</button>
             </mat-card-actions>

@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class IndexCarComponent implements OnInit {
   cars
   carsUnavailable
+  breakpoint
   constructor(
     public db: DatabaseService,
     public dialog: MatDialog,
@@ -18,6 +19,9 @@ export class IndexCarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.breakpoint = (window.innerWidth >= 768) ? 4 : 1;
+
+
     this.db.getCars().subscribe(resp => {
       this.cars = resp.map((e: any) => {
         let image = e.payload.doc.data().image_url;
@@ -55,6 +59,10 @@ export class IndexCarComponent implements OnInit {
         }
       })
     })
+  }
+
+  onResize(event) {
+    this.breakpoint = (event.target.innerWidth >= 768) ? 1 : 6;
   }
 
   handleRent(id, name) {

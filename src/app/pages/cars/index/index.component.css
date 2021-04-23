@@ -1,10 +1,10 @@
 .image-car {
     width: auto;
     height: 150px;
-    position: absolute;
 }
 
 .image-container {
+    text-align: center;
     width: auto;
     margin: auto !important;
     overflow: hidden;

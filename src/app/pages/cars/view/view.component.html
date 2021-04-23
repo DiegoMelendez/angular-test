@@ -1,35 +1,37 @@
 <mat-card style="width: -webkit-fill-available; height: 100%; display: flex" *ngIf="auth.user$ | async as user">
-    <div style="float: left;">
-        <img *ngIf="car.image_url != ''" class="image-car" mat-card-image src={{car.image_url}} alt="Photo of Car">
+    <div>
+        <div>
+            <img *ngIf="car.image_url != ''" class="image-car" mat-card-image src={{car.image_url}} alt="Photo of Car">
+        </div>
+        <div>
+            <h1>{{car.name}}</h1>
+            <button routerLink="/cars/{{id}}/edit" *ngIf="user.uid == car.created_by" color="primary"
+                mat-button>Editar</button>
+            <button (click)="handleDelete()" *ngIf="user.uid == car.created_by" color="warn"
+                mat-button>Eliminar</button>
+            <p style="color:lightgreen" *ngIf="car.available == true">Disponible</p>
+            <p style="color:lightcoral" *ngIf="car.available == false && car.rented_by != user.uid">No Disponible</p>
+            <p style="color:lightgreen" *ngIf="car.rented_by == user.uid">En tu Posesion</p>
+            <p>
+                {{car.price}}$ el dia
+            </p>
+            <p>
+                <strong>Ubicacion: </strong>{{car.address}}
+            </p>
+            <p>
+                <strong>Contacto del dueño: </strong>{{owner.email}}
+            </p>
+            <p>
+                {{car.description}}
+            </p>
+            <mat-card-actions>
+                <button (click)="handleRent()" [disabled]="!car.available" color="primary"
+                    mat-raised-button>Alquilar</button>
+                <button (click)="handleDeliver()" *ngIf="car.rented_by == user.uid" color="accent"
+                    mat-raised-button>Entregar</button>
+
+            </mat-card-actions>
+
+        </div>
     </div>
-    <div style="float: right;">
-        <h1>{{car.name}}</h1>
-        <button routerLink="/cars/{{id}}/edit" *ngIf="user.uid == car.created_by" color="primary"
-            mat-button>Editar</button>
-        <button (click)="handleDelete()" *ngIf="user.uid == car.created_by" color="warn" mat-button>Eliminar</button>
-        <p style="color:lightgreen" *ngIf="car.available == true">Disponible</p>
-        <p style="color:lightcoral" *ngIf="car.available == false && car.rented_by != user.uid">No Disponible</p>
-        <p style="color:lightgreen" *ngIf="car.rented_by == user.uid">En tu Posesion</p>
-        <p>
-            {{car.price}}$ el dia
-        </p>
-        <p>
-            <strong>Ubicacion: </strong>{{car.address}}
-        </p>
-        <p>
-            <strong>Contacto del dueño: </strong>{{owner.email}}
-        </p>
-        <p>
-            {{car.description}}
-        </p>
-        <mat-card-actions>
-            <button (click)="handleRent()" [disabled]="!car.available" color="primary"
-                mat-raised-button>Alquilar</button>
-            <button (click)="handleDeliver()" *ngIf="car.rented_by == user.uid" color="accent"
-                mat-raised-button>Entregar</button>
-
-        </mat-card-actions>
-
-    </div>
-
 </mat-card>
