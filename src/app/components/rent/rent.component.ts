@@ -9,7 +9,8 @@ import { Observable } from "rxjs";
 import { map, finalize } from "rxjs/operators";
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export interface DialogData {
-  id: any
+  id: any,
+  name:any
 }
 @Component({
   selector: 'app-rent',
@@ -41,7 +42,7 @@ export class RentComponent implements OnInit {
 
     this.auth.user$.subscribe(resp => {
       this.db.updateRentedCar(this.data.id, resp.uid, this.rentForm.value).then(() => {
-        this.db.createRent(this.data.id, resp.uid, this.rentForm.value).then(() => {
+        this.db.createRent(this.data.id, resp.uid, this.rentForm.value, this.data.name).then(() => {
           this.dialogRef.close();
         })
       })

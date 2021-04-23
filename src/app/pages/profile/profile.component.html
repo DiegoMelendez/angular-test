@@ -1,0 +1,82 @@
+<mat-card style="width: -webkit-fill-available; height: 100%; display: flex" *ngIf="auth.user$ | async as user">
+    <div style="float: left; width: 25%; border-right: 1px solid gray;margin-right: 20px;">
+        <img class="image-user" mat-card-image src={{user.photoURL}} alt="Photo of User">
+        <h3>{{user.displayName}}</h3>
+        <h3>{{user.email}}</h3>
+    </div>
+    <div style="float: right; width: -webkit-fill-available;">
+        <h1>Vehiculos alquilados Actualmente</h1>
+        <p *ngIf="cars == undefined">No hay Vehiculos</p>
+
+        <mat-grid-list *ngIf="cars" cols="4" rowHeight="300px" gutterSize="10px">
+            <mat-grid-tile *ngFor="let item of cars">
+                <mat-card style="width: -webkit-fill-available; background-color:   #dfb0b0;">
+                    <diV class="image-container">
+                        <img class="image-car" mat-card-image src={{item.image_url}} alt="Photo of Car">
+                    </diV>
+                    <mat-card-header style="padding-top: 10px;">
+                        <mat-card-title>{{item.name}}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p style="height: 20px; overflow: hidden;">
+                            {{item.description}}
+                        </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button color="primary" routerLink="/cars/{{ item.id }}" mat-button>Ver</button>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <h1>Tus Vehiculos Publicados</h1>
+
+        <p *ngIf="myCars == undefined">No hay Vehiculos</p>
+
+        <mat-grid-list *ngIf="myCars" cols="4" rowHeight="300px" gutterSize="10px">
+            <mat-grid-tile *ngFor="let item of myCars">
+                <mat-card style="width: -webkit-fill-available; background-color:   #dfb0b0;">
+                    <diV class="image-container">
+                        <img class="image-car" mat-card-image src={{item.image_url}} alt="Photo of Car">
+                    </diV>
+                    <mat-card-header style="padding-top: 10px;">
+                        <mat-card-title>{{item.name}}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p style="height: 20px; overflow: hidden;">
+                            {{item.description}}
+                        </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button color="primary" routerLink="/cars/{{ item.id }}" mat-button>Ver</button>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <h1>Historial de tus alquileres</h1>
+
+        <table mat-table [dataSource]="history">
+          
+            <ng-container matColumnDef="car_name">
+              <th mat-header-cell *matHeaderCellDef> Vehiculo </th>
+              <td mat-cell *matCellDef="let element"> {{element.car_name}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="rented_from">
+              <th mat-header-cell *matHeaderCellDef> Fecha Inicio </th>
+              <td mat-cell *matCellDef="let element"> {{element.rented_from}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="rented_to">
+              <th mat-header-cell *matHeaderCellDef> Fecha Entrega </th>
+              <td mat-cell *matCellDef="let element"> {{element.rented_to}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+    </div>
+
+</mat-card>

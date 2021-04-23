@@ -50,6 +50,18 @@ export class DatabaseService {
     return this.afs.collection('cars').snapshotChanges()
   }
 
+  getRentedCars(id) {
+    return this.afs.collection('cars', ref => ref.where('rented_by', '==', id)).snapshotChanges()
+  }
+
+  getHistory(id) {
+    return this.afs.collection('rents', ref => ref.where('rented_by', '==', id)).snapshotChanges()
+  }
+
+  getMyCars(id) {
+    return this.afs.collection('cars', ref => ref.where('created_by', '==', id)).snapshotChanges()
+  }
+
   getCar(id) {
     return this.afs.collection('cars').doc(id).get()
   }
@@ -67,12 +79,13 @@ export class DatabaseService {
     })
   }
 
-  createRent(car_id, user_id, values) {
+  createRent(car_id, user_id, values, car_name) {
     return this.afs.collection('rents').add({
       rented_by: user_id,
       rented_from: values.from,
       rented_to: values.to,
       car_id: car_id,
+      car_name: car_name,
       created_at: Timestamp.fromDate(new Date())
     })
   }

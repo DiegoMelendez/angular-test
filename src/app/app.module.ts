@@ -30,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
 import { RentComponent } from './components/rent/rent.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import {MatTableModule} from '@angular/material/table';
 
 const config = {
   apiKey: "AIzaSyBZ36M3FIBjxxCz-F8Lx9ArG0nOnDRbe8U",
@@ -52,7 +54,8 @@ const config = {
     IndexCarComponent,
     DialogDelete,
     RentComponent,
-    DialogDeliver
+    DialogDeliver,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ const config = {
     HttpClientModule,
     AngularFireStorageModule,
     MatGridListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

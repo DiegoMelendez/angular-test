@@ -35,7 +35,8 @@ export class ViewCarComponent implements OnInit {
   handleRent() {
     const dialogRef = this.dialog.open(RentComponent, {
       data: {
-        id: this.id
+        id: this.id,
+        name: this.car.name
       }
     });
     dialogRef.afterClosed().subscribe(result => {

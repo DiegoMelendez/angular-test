@@ -37,10 +37,11 @@ export class IndexCarComponent implements OnInit {
     })
   }
 
-  handleRent(id) {
+  handleRent(id, name) {
     this.dialog.open(RentComponent, {
       data: {
-        id: id
+        id: id,
+        name: name
       }
     });
   }

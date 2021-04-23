@@ -16,7 +16,7 @@
             </mat-card-content>
             <mat-card-actions>
               <button color="primary" routerLink="/cars/{{ item.id }}" mat-button>Ver</button>
-              <button (click)="handleRent(item.id)" [disabled]="!item.available" color="primary" mat-raised-button>Alquilar</button>
+              <button (click)="handleRent(item.id, item.name)" [disabled]="!item.available" color="primary" mat-raised-button>Alquilar</button>
             </mat-card-actions>
           </mat-card>      
     </mat-grid-tile>
