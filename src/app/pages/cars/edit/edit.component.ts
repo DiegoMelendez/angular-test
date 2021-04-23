@@ -39,7 +39,7 @@ export class EditCarComponent implements OnInit {
       let car;
       car = resp.data()
       if (car.image_url == "") {
-        this.fb2 = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Fno-image.jpg?alt=media&token=9a38bf3c-2078-4e36-a699-f0f0941a9a8c"
+        this.fb2 = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Funnamed.png?alt=media&token=b7ceecb0-504d-4879-a143-9e774b26f5d4"
       } else {
         this.fb2 = car.image_url
       }
@@ -81,9 +81,6 @@ export class EditCarComponent implements OnInit {
         })
       )
       .subscribe(url => {
-        if (url) {
-          console.log(url);
-        }
       });
   }
 

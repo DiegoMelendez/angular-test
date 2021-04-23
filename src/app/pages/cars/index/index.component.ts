@@ -22,7 +22,7 @@ export class IndexCarComponent implements OnInit {
       this.cars = resp.map((e: any) => {
         let image = e.payload.doc.data().image_url;
         if (e.payload.doc.data().image_url == "") {
-          image = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Fno-image.jpg?alt=media&token=9a38bf3c-2078-4e36-a699-f0f0941a9a8c"
+          image = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Funnamed.png?alt=media&token=b7ceecb0-504d-4879-a143-9e774b26f5d4"
         }
         return {
           name: e.payload.doc.data().name,
@@ -41,7 +41,7 @@ export class IndexCarComponent implements OnInit {
       this.carsUnavailable = resp.map((e: any) => {
         let image = e.payload.doc.data().image_url;
         if (e.payload.doc.data().image_url == "") {
-          image = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Fno-image.jpg?alt=media&token=9a38bf3c-2078-4e36-a699-f0f0941a9a8c"
+          image = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Funnamed.png?alt=media&token=b7ceecb0-504d-4879-a143-9e774b26f5d4"
         }
         return {
           name: e.payload.doc.data().name,

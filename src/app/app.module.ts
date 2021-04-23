@@ -6,8 +6,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import {
   AngularFireStorageModule,
-  AngularFireStorageReference,
-  AngularFireUploadTask,
 } from "@angular/fire/storage";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

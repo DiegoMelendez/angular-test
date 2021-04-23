@@ -70,9 +70,6 @@ export class CreateCarComponent implements OnInit {
         })
       )
       .subscribe(url => {
-        if (url) {
-          console.log(url);
-        }
       });
   }
 

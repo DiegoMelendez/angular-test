@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
         this.cars = resp.map((e: any) => {
           let image = e.payload.doc.data().image_url;
           if (e.payload.doc.data().image_url == "") {
-            image = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Fno-image.jpg?alt=media&token=9a38bf3c-2078-4e36-a699-f0f0941a9a8c"
+            image = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Funnamed.png?alt=media&token=b7ceecb0-504d-4879-a143-9e774b26f5d4"
           }
           return {
             name: e.payload.doc.data().name,
@@ -53,7 +53,7 @@ export class ProfileComponent implements OnInit {
         this.myCars = resp.map((e: any) => {
           let image = e.payload.doc.data().image_url;
           if (e.payload.doc.data().image_url == "") {
-            image = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Fno-image.jpg?alt=media&token=9a38bf3c-2078-4e36-a699-f0f0941a9a8c"
+            image = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Funnamed.png?alt=media&token=b7ceecb0-504d-4879-a143-9e774b26f5d4"
           }
           return {
             name: e.payload.doc.data().name,
@@ -69,7 +69,6 @@ export class ProfileComponent implements OnInit {
       })
 
       this.db.getHistory(resp.uid).subscribe(resp => {
-        console.log(resp)
         if(resp.length > 0)
         this.history = resp.map((e: any) => {
           return {
@@ -78,7 +77,6 @@ export class ProfileComponent implements OnInit {
             rented_to: moment(e.payload.doc.data().rented_to.toDate()).format('hh:mm A MM/DD/YYYY'),
           }
         })
-        console.log(this.history)
       })
 
     })

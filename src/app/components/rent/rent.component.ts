@@ -4,9 +4,6 @@ import { Router } from '@angular/router';
 import { DatabaseService } from './../../services/database.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, Inject } from '@angular/core';
-import { AngularFireStorage } from "@angular/fire/storage";
-import { Observable } from "rxjs";
-import { map, finalize } from "rxjs/operators";
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export interface DialogData {
   id: any,
@@ -38,8 +35,6 @@ export class RentComponent implements OnInit {
   }
 
   handleSubmit(): void {
-    console.log(this.data.id)
-
     this.auth.user$.subscribe(resp => {
       this.db.updateRentedCar(this.data.id, resp.uid, this.rentForm.value).then(() => {
         this.db.createRent(this.data.id, resp.uid, this.rentForm.value, this.data.name).then(() => {

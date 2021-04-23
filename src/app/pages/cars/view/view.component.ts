@@ -30,7 +30,7 @@ export class ViewCarComponent implements OnInit {
         this.owner = resp.data();
       })
       if (this.car.image_url == "") {
-        this.car.image_url = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Fno-image.jpg?alt=media&token=9a38bf3c-2078-4e36-a699-f0f0941a9a8c"
+        this.car.image_url = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Funnamed.png?alt=media&token=b7ceecb0-504d-4879-a143-9e774b26f5d4"
       }
     })
   }
@@ -46,7 +46,7 @@ export class ViewCarComponent implements OnInit {
       this.db.getCar(this.id).subscribe(resp => {
         this.car = resp.data()
         if (this.car.image_url == "") {
-          this.car.image_url = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Fno-image.jpg?alt=media&token=9a38bf3c-2078-4e36-a699-f0f0941a9a8c"
+          this.car.image_url = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Funnamed.png?alt=media&token=b7ceecb0-504d-4879-a143-9e774b26f5d4"
         }
       })
     });
@@ -73,7 +73,7 @@ export class ViewCarComponent implements OnInit {
           this.db.getCar(this.id).subscribe(resp => {
             this.car = resp.data()
             if (this.car.image_url == "") {
-              this.car.image_url = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Fno-image.jpg?alt=media&token=9a38bf3c-2078-4e36-a699-f0f0941a9a8c"
+              this.car.image_url = "https://firebasestorage.googleapis.com/v0/b/angular-test-212ef.appspot.com/o/angular-test%2Funnamed.png?alt=media&token=b7ceecb0-504d-4879-a143-9e774b26f5d4"
             }
           })
         })
